@@ -145,7 +145,7 @@ class EmailSender {
   
  
 
-const cronSchedule = '*/2 * * * *';
+const cronSchedule = '0 * * * *';
 
 const sendHelloEmail = (listArr) =>{
    // Example usage
