@@ -1,0 +1,55 @@
+<!-- weeklyUpdate.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Inline CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      ul {
+       list-style-type: none;
+      }
+      .container {
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+      .content {
+        background-color: #ffffff;
+        padding: 20px;
+      }
+      .footer {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <!-- Email content goes here -->
+        <h1>Welcome to our Newsletter!</h1>
+        <h3>Hello, <%= user.email %>!</h3>
+        <p>Thank you for subscribing to our newsletter. Here are the latest updates:</p>
+        <ul>
+          <% for (let i = 0; i < items.length; i++) { %> 
+            <div style="background-color: red; color: #ffffff; text-transform: capitalize; line-height: 15px;"><strong><%= user.interests[i] %></strong></div>
+            <li style="">
+              <h2><%= items[i].title%></h2>
+              <p style="background-color: lightgrey; width: 100%; margin: 3px;"><%= items[i].abstract %></p>
+              <a href="<%= items[i].url %>" style="margin-top: 5px ;">Click here to read more!!!</a>
+            </li>
+          
+          <% } %>
+        </ul>
+      </div>
+      <div class="footer">
+        <!-- Footer content goes here -->
+        &copy; <%= new Date().getFullYear() %> Your Company. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>

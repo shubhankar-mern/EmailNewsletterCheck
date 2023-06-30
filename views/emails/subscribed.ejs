@@ -1,0 +1,46 @@
+<!-- subscribed.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Inline CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+      .content {
+        background-color: #ffffff;
+        padding: 20px;
+      }
+      .footer {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <!-- Email content goes here -->
+        <h1>Welcome to our Newsletter!</h1>
+        <h3>Hello, <%= userdata.email %>!</h3>
+        <p>Thank you for subscribing to our newsletter. Here are the list of your subscription:</p>
+        <ul>
+          <% for (let i = 0; i < userdata.suggestionArray.length; i++) { %>
+            <li><%= userdata.suggestionArray[i] %></li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="footer">
+        <!-- Footer content goes here -->
+        &copy; <%= new Date().getFullYear() %> Your Company. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>
