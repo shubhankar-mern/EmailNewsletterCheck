@@ -6,10 +6,11 @@ const { verify } = require('jsonwebtoken');
 const jwt = require('jsonwebtoken');
 const router = require('./Routes/index');
 const EmailSender = require('./EmailSystem/index');
+require('dotenv').config();
 
-const port = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
-const app =express();
+const app = express();
 
 // Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,10 +32,10 @@ app.use(cookieParser());
 //use router
 app.use('/', router)
 
-app.listen(port,(err)=>{
+app.listen(PORT,(err)=>{
     if(err){
         console.log(err);
     }else{
-        console.log(`Server running in ${port}`)
+        console.log(`Server running in ${PORT}`)
     }
 })
