@@ -20,7 +20,7 @@ class EmailSender {
         secure: false,
         auth: {
           user: 'shubhankardev8@gmail.com',
-          pass: 'rdpirbffomjwolmp',
+          pass: `${process.env.GMAILERKEY}`,
         },
       });
     }
@@ -87,7 +87,7 @@ class EmailSender {
             const randInti = Math.floor(Math.random() * 1000) + 1;
             const response = await axios.get(`https://api.springernature.com/metadata/json`, {
                 params: {
-                  'api_key': 'b134641ef0d30d95f1df43d28e5f2a22',
+                  'api_key': `${process.env.SPRINGERKEY}`,
                   'q': `${url}`,
                   's': `${randInti}`,
                   'p': '15',
@@ -145,7 +145,7 @@ class EmailSender {
   
  
 
-const cronSchedule = '*/30 * * * *';
+const cronSchedule = '*/2 * * * *';
 
 const sendHelloEmail = (listArr) =>{
    // Example usage
